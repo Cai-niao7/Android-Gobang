@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- 顶部：返回和暂停按钮 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="12dp"
+        android:background="#f0f0f0">
+
+        <!-- 返回按钮 -->
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="#9E9E9E"
+            android:src="@android:drawable/ic_menu_revert"
+            android:scaleType="center"
+            android:contentDescription="返回"
+            android:layout_marginEnd="8dp"
+            android:padding="8dp"/>
+
+        <!-- 空白区域，用于平衡布局 -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <!-- 暂停按钮 -->
+        <ImageButton
+            android:id="@+id/pauseButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="#2196F3"
+            android:src="@android:drawable/ic_media_pause"
+            android:scaleType="center"
+            android:contentDescription="暂停"
+            android:padding="8dp"/>
+    </LinearLayout>
+
+    <!-- 棋盘视图 - 使用 FrameLayout 确保棋盘不被遮挡 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#E6D5B8"> <!-- 棋盘背景色 -->
+
+        <edu.swust.gameapplication.boardView
+            android:id="@+id/boardView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"/>
+    </FrameLayout>
+
+    <!-- 底部：棋子数和悔棋按钮 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="16dp"
+        android:background="#f5f5f5">
+
+        <!-- 黑棋信息 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <!-- 黑棋图标 -->
+            <View
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/black_stone"
+                android:layout_marginEnd="8dp"/>
+
+            <!-- 黑棋步数 -->
+            <TextView
+                android:id="@+id/blackSteps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="黑棋: 0步"
+                android:textSize="16sp"
+                android:textColor="#333333"/>
+        </LinearLayout>
+
+        <!-- 悔棋按钮 -->
+        <ImageButton
+            android:id="@+id/undoButton"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@drawable/undobutton"
+            android:background="@null"
+            android:layout_marginHorizontal="16dp"
+            android:scaleType="fitCenter"/>
+
+        <!-- 白棋信息 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <!-- 白棋图标 -->
+            <View
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/white_stone"
+                android:layout_marginEnd="8dp"/>
+
+            <!-- 白棋步数 -->
+            <TextView
+                android:id="@+id/whiteSteps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="白棋: 0步"
+                android:textSize="16sp"
+                android:textColor="#333333"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 当前回合信息 -->
+    <TextView
+        android:id="@+id/turnInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="当前回合: 黑棋"
+        android:textSize="18sp"
+        android:textColor="#333333"
+        android:gravity="center"
+        android:padding="12dp"
+        android:background="#E8F5E9"/>
+</LinearLayout>

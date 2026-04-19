@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="20dp"
+    android:paddingVertical="20dp"
+    android:background="@drawable/bakg1">
+
+    <!-- 顶部区域：用户信息 + 排行榜按钮（右侧） -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp">
+
+        <!-- 用户信息区域（左侧） -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_alignParentStart="true">
+
+            <ImageButton
+                android:id="@+id/btn_avatar"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/tv_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="用户名"
+                android:textSize="18sp"
+                android:textColor="@android:color/black"
+                android:maxLines="1"
+                android:ellipsize="end" />
+            <!--ellipsize="end":文本内容超出视图边界时，在末尾用省略号（...）表示被截断的部分。-->
+        </LinearLayout>
+
+        <!-- 排行榜和音乐控制按钮区域 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_alignParentEnd="true">
+
+            <!-- 排行榜按钮 -->
+            <ImageButton
+                android:id="@+id/btn_ranking"
+                android:layout_width="88dp"
+                android:layout_height="80dp"
+                android:background="@drawable/ranklist"
+                android:scaleType="fitCenter"
+                android:contentDescription="排行榜" />
+
+            <!-- 音乐控制按钮 -->
+            <ImageButton
+                android:id="@+id/btn_music_control"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:contentDescription="背景音乐开关"
+                android:scaleType="fitCenter"
+                android:layout_gravity="end"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- 中间大片空白区域（用权重占据主要空间） -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="371dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+    </LinearLayout>
+
+    <!-- 中间功能按钮区域 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="40dp">
+
+        <!-- 人机对战按钮 + 文字 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingHorizontal="20dp">
+
+            <ImageButton
+                android:id="@+id/btn_ai_battle"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/pvc"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="人机对战"
+                android:textSize="16sp"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+
+        <!-- 本地对战按钮 + 文字 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingHorizontal="20dp">
+
+            <ImageButton
+                android:id="@+id/btn_local_battle"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/pvp"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="本地对战"
+                android:textSize="16sp"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 底部退出游戏按钮 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="20dp">
+
+        <ImageButton
+            android:id="@+id/btn_exit_game"
+            android:layout_width="160dp"
+            android:layout_height="60dp"
+            android:background="@drawable/exitbutton"
+            android:gravity="center"
+            android:text="退出游戏"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</LinearLayout>

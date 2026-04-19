@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- 返回、难度选择和暂停按钮 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="12dp"
+        android:background="#f0f0f0">
+
+        <!-- 返回按钮 -->
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="#9E9E9E"
+            android:src="@android:drawable/ic_menu_revert"
+            android:scaleType="center"
+            android:contentDescription="返回"
+            android:layout_marginEnd="8dp"
+            android:padding="8dp"/>
+
+        <!-- 难度选择和计时器 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <!-- 难度选择 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginEnd="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="难度选择"
+                    android:textSize="12sp"
+                    android:textColor="#666666"
+                    android:layout_marginBottom="2dp"/>
+
+                <Spinner
+                    android:id="@+id/difficultySpinner"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:background="@android:drawable/btn_dropdown"/>
+            </LinearLayout>
+
+
+            <!-- 计时器 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginStart="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="游戏时间"
+                    android:textSize="12sp"
+                    android:textColor="#666666"
+                    android:layout_marginBottom="2dp"/>
+
+                <TextView
+                    android:id="@+id/timerTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00:00"
+                    android:textSize="18sp"
+                    android:textColor="#333333"
+                    android:textStyle="bold"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="4dp"/>
+            </LinearLayout>
+        </LinearLayout>
+        <ImageButton
+            android:id="@+id/pauseButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="#2196F3"
+            android:src="@android:drawable/ic_media_pause"
+            android:scaleType="center"
+            android:contentDescription="暂停"
+            android:padding="8dp"/>
+    </LinearLayout>
+
+    <!-- 棋盘视图 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#E6D5B8">
+
+        <edu.swust.gameapplication.boardView
+            android:id="@+id/boardView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"/>
+    </FrameLayout>
+
+    <!-- 底部：棋子颜色选择和悔棋按钮 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="16dp"
+        android:background="#f5f5f5">
+
+        <!-- 玩家颜色选择 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="玩家执棋"
+                android:textSize="14sp"
+                android:textColor="#333333"
+                android:layout_marginBottom="4dp"/>
+
+            <RadioGroup
+                android:id="@+id/playerColorGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/playerBlack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="黑棋"
+                    android:checked="true"/>
+
+                <RadioButton
+                    android:id="@+id/playerWhite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="白棋"
+                    android:layout_marginStart="12dp"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <!-- 悔棋按钮 -->
+        <ImageButton
+            android:id="@+id/undoButton"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@drawable/undobutton"
+            android:background="@null"
+            android:layout_marginHorizontal="16dp"
+            android:scaleType="fitCenter"/>
+
+        <!-- 棋子信息 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <!-- 黑棋信息 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="4dp">
+
+                <View
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/black_stone"
+                    android:layout_marginEnd="4dp"/>
+
+                <TextView
+                    android:id="@+id/blackSteps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="黑棋: 0"
+                    android:textSize="14sp"
+                    android:textColor="#333333"/>
+            </LinearLayout>
+
+            <!-- 白棋信息 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <View
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/white_stone"
+                    android:layout_marginEnd="4dp"/>
+
+                <TextView
+                    android:id="@+id/whiteSteps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="白棋: 0"
+                    android:textSize="14sp"
+                    android:textColor="#333333"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 当前回合信息和游戏状态 -->
+    <TextView
+        android:id="@+id/turnInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="当前回合: 黑棋"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:gravity="center"
+        android:padding="12dp"
+        android:background="#E8F5E9"/>
+</LinearLayout>
