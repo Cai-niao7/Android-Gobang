@@ -126,22 +126,29 @@ MainActivity（登录）
 
 ### User 表
 
-| 字段 | 类型 | 说明 |
-|------|------|------|
-| id | INTEGER | 主键，自增 |
-| user_account | TEXT | 用户账号 |
-| user_password | TEXT | 用户密码 |
-| avatar_id | INTEGER | 头像 ID（1-10） |
+| 字段 | 类型 | 约束 | 说明 |
+|------|------|------|------|
+| id | INTEGER | 主键，自增 | 用户唯一标识 |
+| user_account | TEXT | 唯一 | 用户账号 |
+| user_password | TEXT | - | 用户密码 |
+| avatar_id | INTEGER | 默认 0 | 头像 ID（0-10） |
 
 ### GameRecord 表
 
-| 字段 | 类型 | 说明 |
-|------|------|------|
-| record_id | INTEGER | 主键，自增 |
-| user_id | INTEGER | 外键，关联 User.id，级联删除 |
-| is_easy_mode | INTEGER | 是否为简单模式 |
-| is_win | INTEGER | 是否获胜 |
-| record_time | INTEGER | 记录时间戳 |
+| 字段 | 类型 | 约束 | 说明 |
+|------|------|------|------|
+| record_id | INTEGER | 主键，自增 | 记录唯一标识 |
+| user_id | INTEGER | 外键，级联删除 | 关联 User.id |
+| is_easy_mode | BOOLEAN | - | 是否为简单模式 |
+| is_win | BOOLEAN | - | 是否获胜 |
+| record_time | LONG | - | 记录时间戳 |
+
+### 表关系
+```
+User (1) ──< GameRecord (N)
+```
+- 一个用户可以有多条游戏记录
+- 删除用户时自动删除其所有游戏记录（CASCADE）
 
 ## 📄 许可证
 
